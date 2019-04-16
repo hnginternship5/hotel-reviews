@@ -123,7 +123,7 @@ python3 src/generate_review.py
 ```
 There are various flags for controlling the samples:
 ```
-python3 src/generate_unconditional_samples.py --top_k 40 --temperature 0.7
+python3 src/generate_review.py --top_k 40 --temperature 0.7
 ```
 
 To check flag descriptions, use:
@@ -146,10 +146,6 @@ python3 src/interactive_generate_review.py -- --help
 **Train model with custom datasets**
 
 To retrain this model on a custom text dataset:
-
-```
-PYTHONPATH=src ./train --dataset <file|directory|glob>
-```
 
 ```
 PYTHONPATH=src ./train.py --dataset /path/to/encoded.npz --sample_every=250 --learning_rate=0.0001 --stop_after=251
