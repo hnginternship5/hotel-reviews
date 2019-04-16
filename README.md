@@ -84,15 +84,6 @@ PYTHONPATH=src ./encode.py <file|directory|glob> /path/to/encoded.npz
 PYTHONPATH=src ./train --dataset /path/to/encoded.npz
 ```
 
-## GPT-2 samples
-
-| WARNING: Samples are unfiltered and may contain offensive content. |
-| --- |
-
-While we have not yet released GPT-2 itself, you can see some samples from it in the `gpt-2-samples` folder.
-We show unconditional samples with default settings (temperature 1 and no truncation), with temperature 0.7, and with truncation with top_k 40.
-We show conditional samples, with contexts drawn from `WebText`'s test set, with default settings (temperature 1 and no truncation), with temperature 0.7, and with truncation with top_k 40.
-
 ## Future work
 
 We are still trying to improve on this model for better generated reviews.
