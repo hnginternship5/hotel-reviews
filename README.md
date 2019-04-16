@@ -158,6 +158,9 @@ PYTHONPATH=src ./encode.py <file|directory|glob> /path/to/encoded.npz
 PYTHONPATH=src ./train --dataset /path/to/encoded.npz
 ```
 
+## How we trained our model
+Our model was trained using the recent OpenAI released model called, GPT-2.
+
 ## Built With
 
 * [Anaconda](https://www.anaconda.com/distribution/) - The python distribution used
