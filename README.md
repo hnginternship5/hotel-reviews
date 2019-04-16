@@ -70,15 +70,9 @@ Install other python packages/dependencies using the requirement file:
 pip3 install -r requirements.txt
 ```
 
-Install dependencies using requirements file
-
-```
-pip3 install -r requirements.txt
-``` 
-
 **Note: Your virtual environment must always be activated before running any of the command**
 
-The above steps can optionally be done in a virtual environment using tools such as `virtualenv`.
+The above steps can also be done in a virtual environment using tools such as `virtualenv`.
 
 ### Native Installation
 
