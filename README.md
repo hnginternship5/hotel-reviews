@@ -10,21 +10,12 @@ These instructions will get you a copy of the project up and running on your loc
 
 ```
 .
-├── datasets
-│   ├── test_set
-│   │   ├── hotels
-│   │   └── not-hotels
-│   │            
-│   │             
-│   └── training_set
-├       ├── hotels
-├       └── not-hotels
 ├── src
-│   ├── hotels
-│   ├── hotels
-│   ├── hotels
-│   ├── hotels
-│   └── default_model.h5
+│   ├── encoder.py
+│   ├── generate_review.py
+│   ├── interactive_generate_review.py
+│   ├── sample.py
+│   └── model.py
 │   
 │   
 ├── encode.py
@@ -97,8 +88,6 @@ sh download_model.sh 117M
 ```
 `117M` is just a default name for the model
 
-The remaining steps can optionally be done in a virtual environment using tools such as `virtualenv` or `conda`.
-
 ## Usage
 
 Some of the examples below may include Unicode text characters. Set the environment variable:
@@ -107,11 +96,36 @@ export PYTHONIOENCODING=UTF-8
 ```
 to override the standard stream settings in UTF-8 mode.
 
-### Unconditional review generation
+### APIs
 
-To generate unconditional samples from the small model:
+These are some command options in full:
+
 ```
-python3 src/generate_unconditional_samples.py
+A command line utility for hotel review generation.
+---------------------------------------------------
+These are common commands for this app.
+
+optional arguments:
+  --help            this show help message and exit
+  --stop_after      you specify when to stop. This is only useful when training
+  --learning_rate   you specify your learning rate. There is a default of 0.001. Though this model was trained with 0.0001
+  --model_name      string, which model to use. Though there is a default of `117M`
+  --seed            seed for random number generators, fix seed to reproduce results. Default=None
+  --nsamples        Number of samples to return, if 0, continues to generate samples indefinately. Default = 1
+  --batch_size      Number of batches (only affects speed/memory). Default = 1
+  --length          Number of tokens in generated text, if None (default), is determined by model hyperparameters.
+  --temperature     Float value controlling randomness in boltzmann distribution. Lower temperature results in less random completions. As the temperature approaches zero, the model will become deterministic and repetitive. Higher temperature results in more random completions. Default = 1
+  --top_k           Integer value controlling diversity. 1 means only 1 word is considered for each step (token), resulting in deterministic completions, while 40 means 40 words are considered at each step. 0 (default) is a special setting meaning no restrictions. 40 generally is a good value.
+```
+
+Some of the above optional arguments are useful only when training while others are use when generating reviews.
+
+
+### Review generation
+
+To generate samples of review from the small model:
+```
+python3 src/generate_review.py
 ```
 There are various flags for controlling the samples:
 ```
@@ -120,22 +134,22 @@ python3 src/generate_unconditional_samples.py --top_k 40 --temperature 0.7
 
 To check flag descriptions, use:
 ```
-python3 src/generate_unconditional_samples.py -- --help
+python3 src/generate_review.py -- --help
 ```
 
-### Conditional Review generation
+### Interactive Review generation
 
 To give the model custom prompts, you can use:
 ```
-python3 src/interactive_conditional_samples.py --top_k 40
+python3 src/interactive_generate_review.py --top_k 40
 ```
 
 To check flag descriptions, use:
 ```
-python3 src/interactive_conditional_samples.py -- --help
+python3 src/interactive_generate_review.py -- --help
 ```
 
-### Fine tuning on custom datasets
+**Train model with custom datasets**
 
 To retrain this model on a custom text dataset:
 
@@ -143,118 +157,15 @@ To retrain this model on a custom text dataset:
 PYTHONPATH=src ./train --dataset <file|directory|glob>
 ```
 
+```
+PYTHONPATH=src ./train.py --dataset /path/to/encoded.npz --sample_every=250 --learning_rate=0.0001 --stop_after=251
+```
+
 If you want to precompute the dataset's encoding for multiple runs, you can instead use:
 
 ```
 PYTHONPATH=src ./encode.py <file|directory|glob> /path/to/encoded.npz
 PYTHONPATH=src ./train --dataset /path/to/encoded.npz
-```
-
-### APIs
-
-This are command options in full:
-
-```
-A command line utility for image classification.
------------------------------------------------
-These are common commands for this app.
-
-positional arguments:
-  app_action            This can either be predict, train, retrieve_models or
-                        delete
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -path PATH, --path PATH
-                        A path to a folder or image e.g foo or foobar.jpg
-  -grpA GRPA, --grpA GRPA
-                        A group A folder path e.g hotels
-  -grpB GRPB, --grpB GRPB
-                        A group B folder path e.g not-hotels
-  -model MODEL, --model MODEL
-                        Selects a model to be used
-  -gen_name GEN_NAME, --gen_name GEN_NAME
-                        A boolean to generate model name e.g yes or no
-```
-Below is specifics
-
-**Retrieve Models:**
-
-```
-python app.py retrieve_models
-```
-
-**Delete Model:**
-
-```
-python app.py delete -model modelname
-``` 
-
-or:
-
-```
-python app.py delete --model modelname
-```
-
-**Train Model with custom dataset and model:**
-
-```
-python app.py train --grpA path/to/groupA --grpB path/to/groupB --model cat_dogmodel
-```
-
-or:
-
-```
-python app.py train -grpA path/to/groupA -grpB path/to/groupB -model cat_dogmodel
-```
-
-**Train with default dataset and model:**
-
-If the default model already exists, delete it before proceeding
-
-```
-python app.py train
-```
-
-**Classification with default model:**
-
-with image file:
-
-```
-python app.py predict --path /path/to/image.png
-```
-
-with folder:
-
-```
-python app.py predict --path /path/to/folder
-```
-
-or:
-
-with image file:
-
-```
-python app.py predict -path /path/to/image.png
-```
-
-with folder:
-
-```
-python app.py predict -path /path/to/folder
-```
-
-
-**Classification with custom model:**
-
-```
-python app.py predict --path /Users/src/assets/images/bg.png --model modelname
-```
-
-or:
-
-```
-python app.py predict -path /Users/src/assets/images/bg.png -model modelname
 ```
 
 ## Built With
