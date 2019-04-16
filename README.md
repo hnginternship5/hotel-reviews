@@ -90,6 +90,14 @@ export PYTHONIOENCODING=UTF-8
 ```
 to override the standard stream settings in UTF-8 mode.
 
+### Getting Hotel Reviews Dataset
+
+Download the dataset from (Kaggle)[https://www.kaggle.com/jiashenliu/515k-hotel-reviews-data-in-europe], then unzip into the `training_data` directory.
+
+After download, process the downloaded file by running the `dataset_processor.py` file.
+
+```python ../dataset_processor.py```
+
 ### APIs
 
 These are some command options in full:
@@ -154,8 +162,8 @@ PYTHONPATH=src ./train.py --dataset /path/to/encoded.npz --sample_every=250 --le
 If you want to precompute the dataset's encoding for multiple runs, you can instead use:
 
 ```
-PYTHONPATH=src ./encode.py <file|directory|glob> /path/to/encoded.npz
-PYTHONPATH=src ./train --dataset /path/to/encoded.npz
+PYTHONPATH=src ./encode.py ../training_data/Hotels_Reviews_Training.csv ../training_data/Hotels_Reviews_Training.csv.npz
+PYTHONPATH=src ./train --dataset ../training_data/Hotels_Reviews_Training.csv.npz
 ```
 
 ## Built With
