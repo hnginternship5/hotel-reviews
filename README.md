@@ -10,27 +10,55 @@ These instructions will get you a copy of the project up and running on your loc
 
 ```
 .
-|___ 
-|___ requirements.txt
+├── datasets
+│   ├── test_set
+│   │   ├── hotels
+│   │   └── not-hotels
+│   │            
+│   │             
+│   └── training_set
+├       ├── hotels
+├       └── not-hotels
+├── model
+│   └── default_model.h5
+│   
+│   
+├── utils
+├── requirements.txt
+├── train.py
+└── README.md
 ```
-## Installation
+### Prerequisites
 
-Git clone this repository, and `cd` into directory for remaining commands
+Python distribution
+
 ```
-git clone https://github.com/openai/gpt-2.git && cd gpt-2
+Anaconda
 ```
 
-Then, follow instructions for either native or Docker installation.
+### Installing
 
-### Native Installation
+Install Anaconda python distribution on your system
 
-Download the model data
+Create a virtual environment called env.
+
 ```
-sh download_model.sh 117M
+python -m venv env
 ```
-`117M` is just a default name for the model
 
-The remaining steps can optionally be done in a virtual environment using tools such as `virtualenv` or `conda`.
+Activate the virtual environment
+
+```
+LINUX/Mac: source env/bin/activate
+
+Windows: env\Scripts\activate
+```
+
+Upgrade to the latest pip
+
+```
+pip3 install --upgrade pip3
+```
 
 Install tensorflow 1.12 (with GPU support, if you have a GPU and want everything to run faster)
 ```
@@ -41,10 +69,29 @@ or
 pip3 install tensorflow-gpu==1.12.0
 ```
 
-Install other python packages:
+Install other python packages/dependencies using the requirement file:
 ```
 pip3 install -r requirements.txt
 ```
+
+Install dependencies using requirements file
+
+```
+pip3 install -r requirements.txt
+``` 
+
+**Note: Your virtual environment must always be activated before running any command**
+Then, follow instructions for native installation.
+
+### Native Installation
+
+Download the model data
+```
+sh download_model.sh 117M
+```
+`117M` is just a default name for the model
+
+The remaining steps can optionally be done in a virtual environment using tools such as `virtualenv` or `conda`.
 
 ## Usage
 
@@ -96,6 +143,10 @@ If you want to precompute the dataset's encoding for multiple runs, you can inst
 PYTHONPATH=src ./encode.py <file|directory|glob> /path/to/encoded.npz
 PYTHONPATH=src ./train --dataset /path/to/encoded.npz
 ```
+## Built With
+
+* [Anaconda](https://www.anaconda.com/distribution/) - The python distribution used
+* [VS Code](https://code.visualstudio.com/) - The IDE used
 
 ## Future work
 
@@ -103,4 +154,9 @@ We are still trying to improve on this model for better generated reviews.
 
 ## License
 
-MIT
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details
+
+## Acknowledgments
+* Hat tip to anyone whose code was used
+* Inspiration
+* etc
