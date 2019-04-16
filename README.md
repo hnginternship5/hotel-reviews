@@ -56,15 +56,6 @@ Upgrade to the latest pip
 pip3 install --upgrade pip3
 ```
 
-Install tensorflow 1.12 (with GPU support, if you have a GPU and want everything to run faster)
-```
-pip3 install tensorflow==1.12.0
-```
-or
-```
-pip3 install tensorflow-gpu==1.12.0
-```
-
 Install other python packages/dependencies using the requirement file:
 ```
 pip3 install -r requirements.txt
@@ -75,6 +66,15 @@ pip3 install -r requirements.txt
 The above steps can also be done in a virtual environment using tools such as `virtualenv`.
 
 ### Native Installation
+
+Install tensorflow 1.12 (with GPU support, if you have a GPU and want everything to run faster)
+```
+pip3 install tensorflow==1.12.0
+```
+or
+```
+pip3 install tensorflow-gpu==1.12.0
+```
 
 Download the model data
 ```
