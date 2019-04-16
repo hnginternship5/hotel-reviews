@@ -19,6 +19,9 @@ These instructions will get you a copy of the project up and running on your loc
 │   
 │   
 ├── encode.py
+├── dataset_processor.py
+├── download_gdrive.py
+├── download_model.sh
 ├── LICENSE
 ├── requirements.txt
 ├── train.py
