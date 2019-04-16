@@ -1,11 +1,3 @@
-# gpt-2
-
-Code and samples from the paper ["Language Models are Unsupervised Multitask Learners"](https://d4mucfpksywv.cloudfront.net/better-language-models/language-models.pdf).
-
-For now, we have only released a smaller (117M parameter) version of GPT-2.
-
-See more details in our [blog post](https://blog.openai.com/better-language-models/).
-
 ## Installation
 
 Git clone this repository, and `cd` into directory for remaining commands
@@ -36,21 +28,6 @@ pip3 install tensorflow-gpu==1.12.0
 Install other python packages:
 ```
 pip3 install -r requirements.txt
-```
-
-### Docker Installation
-
-Build the Dockerfile and tag the created image as `gpt-2`:
-```
-docker build --tag gpt-2 -f Dockerfile.gpu . # or Dockerfile.cpu
-```
-
-Start an interactive bash session from the `gpt-2` docker image.
-
-You can opt to use the `--runtime=nvidia` flag if you have access to a NVIDIA GPU
-and a valid install of [nvidia-docker 2.0](https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0)).
-```
-docker run --runtime=nvidia -it gpt-2 bash
 ```
 
 ## Usage
@@ -116,22 +93,9 @@ While we have not yet released GPT-2 itself, you can see some samples from it in
 We show unconditional samples with default settings (temperature 1 and no truncation), with temperature 0.7, and with truncation with top_k 40.
 We show conditional samples, with contexts drawn from `WebText`'s test set, with default settings (temperature 1 and no truncation), with temperature 0.7, and with truncation with top_k 40.
 
-## Citation
-
-Please use the following bibtex entry:
-```
-@article{radford2019language,
-  title={Language Models are Unsupervised Multitask Learners},
-  author={Radford, Alec and Wu, Jeff and Child, Rewon and Luan, David and Amodei, Dario and Sutskever, Ilya},
-  year={2019}
-}
-```
-
 ## Future work
 
-We may release code for evaluating the models on various benchmarks.
-
-We are still considering release of the larger models.
+We are still trying to improve on this model for better generated reviews.
 
 ## License
 
