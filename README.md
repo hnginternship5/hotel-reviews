@@ -1,3 +1,18 @@
+# Review Generation for Hotels
+
+This project is carried out for the purpose of building upon a machine learning model for generating of review for hotels.
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Project Structure
+
+```
+.
+|___ 
+|___ requirements.txt
+```
 ## Installation
 
 Git clone this repository, and `cd` into directory for remaining commands
@@ -13,6 +28,7 @@ Download the model data
 ```
 sh download_model.sh 117M
 ```
+`117M` is just a default name for the model
 
 The remaining steps can optionally be done in a virtual environment using tools such as `virtualenv` or `conda`.
 
@@ -31,9 +47,6 @@ pip3 install -r requirements.txt
 ```
 
 ## Usage
-
-| WARNING: Samples are unfiltered and may contain offensive content. |
-| --- |
 
 Some of the examples below may include Unicode text characters. Set the environment variable:
 ```
@@ -71,7 +84,7 @@ python3 src/interactive_conditional_samples.py -- --help
 
 ### Fine tuning on custom datasets
 
-To retrain GPT-2 117M model on a custom text dataset:
+To retrain this model on a custom text dataset:
 
 ```
 PYTHONPATH=src ./train --dataset <file|directory|glob>
