@@ -157,6 +157,11 @@ If you want to precompute the dataset's encoding for multiple runs, you can inst
 PYTHONPATH=src ./encode.py <file|directory|glob> /path/to/encoded.npz
 PYTHONPATH=src ./train --dataset /path/to/encoded.npz
 ```
+## Dataset
+
+The dataset used for this project was gotten from (Kaggle)[https://www.kaggle.com/jiashenliu/515k-hotel-reviews-data-in-europe]. The dataset consists of positive and negative reviews, and they were combined to form a full review.
+
+The processing was done using the `dataset_processor.py` file, on the `Hotel_Reviews.csv` file gotten from unzipping the dataset.
 
 ## Built With
 
