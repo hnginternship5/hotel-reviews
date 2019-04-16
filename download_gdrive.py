@@ -55,6 +55,6 @@ if __name__ == "__main__":
         file_id = sys.argv[1]
         # DESTINATION FILE ON YOUR DISK
         destination = sys.argv[2]
-        current_dir = os.getcwd();
+        current_dir = os.getcwd()
         saved_dir = current_dir + destination
         download_file_from_google_drive(file_id, saved_dir)
