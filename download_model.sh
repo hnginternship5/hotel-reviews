@@ -10,13 +10,13 @@ model=$1
 mkdir -p models/$model
 
 
-python download_gdrive.py 1t8LQg7dcDMRolRA5L828OoB9f82Vwzj0 /models/$model/checkpoint
-python download_gdrive.py 1-bsS8w_BtkmbgfKYLmY_PIrYsZpO-eE0 /models/$model/encoder.json
-python download_gdrive.py 1ZzZ6LDRjjmHMOtX0at3-jP9pMsZdgd6p /models/$model/hparams.json
-python download_gdrive.py 1-5lyu9K6yx89KZrp3LShnL23JN_KF5-E /models/$model/model-24.data-00000-of-00001
-python download_gdrive.py 1nJf4ltHeEOC3s7I1XBQzn_idn25LHnhw /models/$model/model-24.index
-python download_gdrive.py 1RU7iqK0IrVUIYzrN6KX3KYHiXAD55YWX /models/$model/model-24.meta
-python download_gdrive.py 1_wl56QssHzDIa7C-xARW9BZUEem8WXua /models/$model/vocab.bpe
+python download_gdrive.py 1-3oNuLzqm1i32Z7sv4_XJoGQe2x8EVqd /models/$model/checkpoint
+python download_gdrive.py 1-5bgcxksuhamg_jhd6J2oRVWDujN6CMB /models/$model/encoder.json
+python download_gdrive.py 1-7VWpbWUyqCPKhL5sJPoZrXwwZu9ouBL /models/$model/hparams.json
+python download_gdrive.py 1-f2yx_Jbj0Nt02U_PTsQiYol_lQp0CrN /models/$model/model-38.data-00000-of-00001
+python download_gdrive.py 1-g7wT0WvvfeLJMnWNaZ6w4cJxUp2BDXH /models/$model/model-38.index
+python download_gdrive.py 1-gW88PGL5JDgPblMrOO0nanGfMo-dzbc /models/$model/model-38.meta
+python download_gdrive.py 1-U9A6rb7-7PTjack-Kf2eXtr-n8MM2pL /models/$model/vocab.bpe
 
 
 
